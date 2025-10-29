@@ -40,6 +40,9 @@ The_Trace_of_Time_Restored_by_AI/
 
 ## 설치 및 실행 방법
 ### 1. 프로젝트 다운로드
+```
+<> Code -→ Download zip
+```
 
 ### 2. 가상환경 삭제 후 재설치
 ```
