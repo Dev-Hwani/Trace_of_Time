@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Memory Timeline{% endblock %}
+
+{% block content %}
+<h2 class="text-light mb-4">🕰 기억 타임라인</h2>
+<div id="timelineContainer" class="row g-4"></div>
+
+<!-- 모달: 이미지 + 입력 텍스트 + AI 분석 + 날짜 -->
+<div class="modal fade" id="memoryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-light rounded-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title glow-text">기억 상세 보기</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" alt="" class="img-fluid mb-3 rounded shadow" style="max-height:400px;">
+        <p id="modalMemory" class="mb-2"></p>
+        <p id="modalAnalysis" class="fst-italic"></p>
+        <p id="modalDate" class="text-muted mt-2"></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
