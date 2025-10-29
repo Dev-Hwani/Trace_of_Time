@@ -1,6 +1,7 @@
 # Trace_of_Time
 
 ## 프로젝트 구조
+```
 The_Trace_of_Time_Restored_by_AI/
 ├── .venv/                     # Python 가상환경
 ├── app/                       # FastAPI 애플리케이션 코드
@@ -35,27 +36,35 @@ The_Trace_of_Time_Restored_by_AI/
 ├── main.py                     # FastAPI 앱 실행 및 라우터 등록
 ├── test_main.http              # API 테스트용 HTTP 요청 예시
 └── requirements.txt            # 프로젝트 의존성 패키지 목록
+```
 
 ## 설치 및 실행 방법
 ### 1. 프로젝트 다운로드
 
 ### 2. 가상환경 삭제 후 재설치
+```
 python -m venv .venv
 .\.venv\Scripts\activate
+```
 
 ### 3. 필요 패키지 설치
+```
 pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 ### 4. 환경 변수 설정
+```
 OPENAI_API_KEY=your_openai_api_key
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=your_mysql_user
 DB_PASSWORD=your_mysql_password
 DB_NAME=memory_db
+```
 
 ### 5. MySQL DB 준비
+```
 CREATE DATABASE memory_db;
 
 USE memory_db;
@@ -68,8 +77,12 @@ CREATE TABLE memory_archive (
     image_url VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
 ### 6. FastAPI 서버 실행
+```
 uvicorn main:app --reload
+```
 기본 URL: http://127.0.0.1:8000
+
 API 문서: http://127.0.0.1:8000/docs
