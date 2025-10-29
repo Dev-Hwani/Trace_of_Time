@@ -16,23 +16,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         memories.forEach(memory => {
-            // gpt_analysis가 JSON 문자열이면 파싱
-            let analysisText = "";
+            // gpt_analysis 처리
+            let analysisHTML = "";
             try {
                 const parsed = typeof memory.gpt_analysis === "string"
                     ? JSON.parse(memory.gpt_analysis)
                     : memory.gpt_analysis;
 
-                analysisText = `
-감정: ${parsed.emotion || ""}
-이미지: ${parsed.imagery || ""}
-상징: ${parsed.symbolism || ""}
-시대: ${parsed.time_period || ""}
-                `.trim();
-            } catch {
-                analysisText = memory.gpt_analysis?.analysis || "";
+                // JSON 구조를 사람이 보기 좋게 HTML 포맷으로 정리
+                analysisHTML = `
+                    <div class="analysis-box text-start">
+                        <p><strong>감정:</strong> ${parsed.emotion || "-"}</p>
+                        <p><strong>이미지:</strong> ${parsed.imagery || "-"}</p>
+                        <p><strong>상징:</strong> ${parsed.symbolism || "-"}</p>
+                        <p><strong>시대:</strong> ${parsed.time_period || "-"}</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.warn("gpt_analysis 파싱 실패:", error);
+                analysisHTML = `<p>AI 분석 데이터를 불러올 수 없습니다.</p>`;
             }
 
+            // 카드 구성
             const col = document.createElement("div");
             col.className = "col-lg-4 col-md-6";
 
@@ -47,11 +52,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <button class="btn btn-outline-light mt-2 w-100 btn-view-detail">상세 보기</button>
             `;
 
+            // 상세 보기 버튼 클릭 시 모달 표시
             card.querySelector(".btn-view-detail").addEventListener("click", () => {
                 modalImage.src = memory.image_url;
                 modalMemory.textContent = memory.text;
-                modalAnalysis.textContent = analysisText;
                 modalDate.textContent = memory.date;
+
+                // 모달 내용은 HTML로 표시되도록 (가독성 개선)
+                modalAnalysis.innerHTML = analysisHTML;
+
                 memoryModal.show();
             });
 
