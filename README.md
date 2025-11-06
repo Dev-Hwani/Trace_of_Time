@@ -10,7 +10,7 @@ The Trace of Time 프로젝트는 사용자의 기억을 입력받아 AI(GPT-4o)
 - AI 이미지 생성: DALL-E 3를 이용한 기억 이미지 생성
 - 타임라인 조회: 저장된 기억과 AI 분석 결과를 카드 형태로 시각화
 - 상세 모달: 카드 클릭 시 전체 텍스트와 분석 결과 확인
-- 복원 재시도 기능 : 같은 기억이라도 다른 감정으로 재해석해볼 수 있도록 “다시 복원” 기능 제공
+- 복원 재시도 기능 : 같은 기억이라도 다른 감정으로 재해석해볼 수 있도록 다시 복원 기능 제공
 
 ## 기술 스택
 - Backend: Python, FastAPI
@@ -24,7 +24,7 @@ The_Trace_of_Time_Restored_by_AI/
 ├── .venv/                     # Python 가상환경
 ├── app/                       # FastAPI 애플리케이션 코드
 │   ├── models/
-│   │   └── memory_model.py    # DB에 memory 데이터 저장/조회 관련 로직
+│   │   └── memory_model.py    # DB에 memory 데이터 저장/조회/수정/삭제 관련 로직
 │   ├── routers/
 │   │   ├── __init__.py
 │   │   ├── image.py            # image 생성 관련 API 라우터 (/image)
