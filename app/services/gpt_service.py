@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 def analyze_memory(text: str) -> dict:
-    """GPT-4o를 이용하여 기억 텍스트를 분석하고 JSON 구조로 반환"""
+    """GPT-5를 이용하여 기억 텍스트를 분석하고 JSON 구조로 반환"""
 
     # 🔹 1. GPT에게 system_prompt 요청
     system_prompt = """
@@ -49,12 +49,12 @@ def analyze_memory(text: str) -> dict:
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": text}
             ],
-            temperature=0.7
+            temperature=1
         )
         result_text = response.choices[0].message.content
 
