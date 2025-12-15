@@ -1,14 +1,16 @@
-from pydantic import BaseModel
-from typing import Optional
 from datetime import date
+from typing import Any, Optional
+
+from pydantic import BaseModel
+
 
 class MemoryInput(BaseModel):
     text: str
     date: date
 
+
 class MemoryUpdate(BaseModel):
-    id: int
     text: str
     date: date
-    gpt_analysis: Optional[str] = None
+    gpt_analysis: Optional[dict[str, Any]] = None
     image_url: Optional[str] = None
