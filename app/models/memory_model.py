@@ -48,10 +48,15 @@ def get_all_memories():
         cursor.execute(sql)
         rows = cursor.fetchall()
         for row in rows:
-            try:
-                row['gpt_analysis'] = json.loads(row['gpt_analysis'])
-            except json.JSONDecodeError as je:
-                logging.warning(f"gpt_analysis JSON 파싱 실패 (ID: {row['id']}): {je}")
+            raw_analysis = row.get('gpt_analysis')
+            if raw_analysis:
+                try:
+                    row['gpt_analysis'] = json.loads(raw_analysis)
+                except json.JSONDecodeError as je:
+                    logging.warning(f"gpt_analysis JSON 파싱 실패 (ID: {row['id']}): {je}")
+                    row['gpt_analysis'] = {}
+            else:
+                # DB에 NULL/빈 값이 들어간 경우 기본값으로 대체
                 row['gpt_analysis'] = {}
         logging.info(f"{len(rows)}개의 메모리 조회 완료")
         return rows
