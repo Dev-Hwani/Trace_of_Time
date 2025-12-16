@@ -1,7 +1,7 @@
 # Trace_of_Time
 
 ## 프로젝트 소개
-The Trace of Time 프로젝트는 사용자의 기억을 입력받아 AI(GPT-4o)로 감정 분석을 수행하고
+The Trace of Time 프로젝트는 사용자의 기억을 입력받아 AI(GPT)로 감정 분석을 수행하고
 분석 결과와 관련 이미지를 생성하여 개인 타임라인에 시각화하는 웹 애플리케이션입니다.
 
 ## 주요 기능
@@ -16,7 +16,7 @@ The Trace of Time 프로젝트는 사용자의 기억을 입력받아 AI(GPT-4o)
 - Backend: Python, FastAPI
 - Frontend: HTML, CSS, JavaScript, Bootstrap
 - Database: MySQL
-- AI: OpenAI GPT-4o, DALL-E-3
+- AI: OpenAI GPT-5, DALL-E-3
 
 ## 프로젝트 구조
 ```
@@ -33,7 +33,7 @@ The_Trace_of_Time_Restored_by_AI/
 │   │   └── memory_schema.py    # Pydantic 모델 정의 (API 요청 데이터 검증)
 │   ├── services/
 │   │   ├── gpt_service.py      # GPT를 이용한 memory 분석
-│   │   └── dalle_service.py    # DALL-E-3를 이용한 이미지 생성
+│   │   └── dalle_service.py    # DALL-E를 이용한 이미지 생성
 │   ├── utils/
 │   │   └── __init__.py         # 필요 시 유틸리티 함수 추가
 │   └── __init__.py
