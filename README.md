@@ -55,6 +55,14 @@ The_Trace_of_Time_Restored_by_AI/
 ├── test_main.http              # API 테스트용 HTTP 요청 예시
 └── requirements.txt            # 프로젝트 의존성 패키지 목록
 ```
+## Database
+<img width="278" height="343" alt="image" src="https://github.com/user-attachments/assets/c2046f1d-930b-416c-864e-caad52c68415" />
+
+## API
+<img width="2161" height="879" alt="image" src="https://github.com/user-attachments/assets/e2393af0-b6eb-4c34-8bda-fe6184b6062b" />
+
+## 시연 영상
+https://youtu.be/NguvJCp7qAc
 
 ## 설치 및 실행 방법
 ### 1. 프로젝트 다운로드
