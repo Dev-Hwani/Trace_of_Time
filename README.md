@@ -51,6 +51,7 @@ The_Trace_of_Time_Restored_by_AI/
 │   ├── index.html              # Memory 입력 페이지
 │   └── timeline.html           # Timeline 조회 페이지
 ├── .env                        # 환경 변수 파일 (DB 정보, OpenAI API 키)
+├── benchmark_async_vs_sync.py  # 비동기/동기 응답시간 벤치마크 테스트 코드
 ├── main.py                     # FastAPI 앱 실행 및 라우터 등록
 ├── test_main.http              # API 테스트용 HTTP 요청 예시
 └── requirements.txt            # 프로젝트 의존성 패키지 목록
